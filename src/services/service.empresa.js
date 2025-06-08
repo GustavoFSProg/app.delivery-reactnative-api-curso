@@ -4,11 +4,11 @@
 import repositoryEmpresa from "../repositories/repository.empresa.js";
 
 
-async function Listar() {
+async function Destaques() {
 
-    const empresas = await repositoryEmpresa.Listar();
+    const empresas = await repositoryEmpresa.Destaques();
 
     return empresas;
 }
 
-export default { Listar };
+export default { Destaques };

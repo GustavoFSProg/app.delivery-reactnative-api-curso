@@ -58,6 +58,6 @@ router.get("/restaurantes", (req, res) => {
 
 router.get("/categorias", controllerCategoria.Listar);
 router.get("/banners", controllerBanner.Listar);
-router.get("/empresas", controllerEmpresa.Listar);
+router.get("/empresas/destaques", controllerEmpresa.Destaques);
 
 export default router;

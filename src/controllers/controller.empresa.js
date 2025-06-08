@@ -1,7 +1,9 @@
 import serviceEmpresas from '../services/service.empresa.js'
-async function Listar(req, res) {
+
+
+async function Destaques(req, res) {
     try {
-        const empresas = await serviceEmpresas.Listar();
+        const empresas = await serviceEmpresas.Destaques();
 
         res.status(200).json(empresas);
     } catch (error) {
@@ -9,4 +11,4 @@ async function Listar(req, res) {
     }
 }
 
-export default { Listar };
+export default { Destaques };
