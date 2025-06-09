@@ -2,6 +2,7 @@ import { Router } from "express";
 import controllerCategoria from "./controllers/controller.categoria.js";
 import controllerBanner from "./controllers/controller.banner.js";
 import controllerEmpresa from "./controllers/controller.empresa.js";
+import controllerpedido from "./controllers/controllerpedido.js";
 
 const router = Router();
 
@@ -59,5 +60,6 @@ router.get("/restaurantes", (req, res) => {
 router.get("/categorias", controllerCategoria.Listar);
 router.get("/banners", controllerBanner.Listar);
 router.get("/empresas/destaques", controllerEmpresa.Destaques);
+router.get("/pedidos", controllerpedido.Listar);
 
 export default router;
