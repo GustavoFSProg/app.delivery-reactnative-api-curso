@@ -2,7 +2,8 @@ import { Router } from "express";
 import controllerCategoria from "./controllers/controller.categoria.js";
 import controllerBanner from "./controllers/controller.banner.js";
 import controllerEmpresa from "./controllers/controller.empresa.js";
-import controllerpedido from "./controllers/controllerpedido.js";
+import controllerpedido from "./controllers/controller.pedido.js";
+import controllerUsuario from "./controllers/controller.usuario.js";
 
 const router = Router();
 
@@ -57,9 +58,23 @@ router.get("/restaurantes", (req, res) => {
 
 });
 
+
+// produtos
 router.get("/categorias", controllerCategoria.Listar);
 router.get("/banners", controllerBanner.Listar);
 router.get("/empresas/destaques", controllerEmpresa.Destaques);
+
+
+// pedidos
 router.get("/pedidos", controllerpedido.Listar);
+router.get("/pedidos/:id_pedido", controllerpedido.ListarId);
+
+
+
+
+// Usuarios 
+router.get("/usuarios/favoritos", controllerUsuario.Favoritos);
+router.post("/usuarios/login", controllerUsuario.Login);
+router.post("/usuarios", controllerUsuario.Inserir);
 
 export default router;
