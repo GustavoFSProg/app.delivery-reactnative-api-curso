@@ -1,4 +1,5 @@
 import serviceUsuario from "../services/service.usuario.js";
+import jwt from '../token.js'
 
 async function Favoritos(req, res) {
     try {
@@ -11,22 +12,26 @@ async function Favoritos(req, res) {
     }
 }
 
-async function Login(req, res) {
+ async function Login(req, res) {
 
     //const email = req.body.email;
     //const senha = req.body.senha;
     const { email, senha } = req.body;
 
-    if (email == "teste@teste.com" && senha == "12345") {
-        res.status(200).json({
-            id_usuario: 123,
-            email: "teste@teste.com",
-            nome: "Heber Stein Mazutti",
-            insta: "@devpoint.com.br"
-        });
-    } else {
-        res.status(401).json({ error: "E-mail ou senha inválida" });
-    }
+    const id_usuario = 123
+
+    const token =  jwt.createToken({id_usuario})
+
+    // if (email == "teste@teste.com" && senha == "12345") {
+    //     res.status(200).json({
+    //         id_usuario: 123,
+    //         email: "teste@teste.com",
+    //         nome: "Heber Stein Mazutti",
+    //         insta: "@devpoint.com.br"
+    //     });
+    // } else {
+    return    res.status(201).json({ email, token });
+    // }
 
 }
 

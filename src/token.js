@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 
 const secretToken = "myURLKEY@123"
 
-function createToken(id_usuario){
+function createToken({id_usuario}){
     const token = jwt.sign({id_usuario}, secretToken, {
         expiresIn: '5d'
     })
@@ -25,6 +25,8 @@ function ValidateToken(req, res, next){
         if(err) return res.status(401).json({error: "Token Inválido!"}) 
 
             req.id_usuario = decoded.id_usuario
+
+            next()
     })
 }
 

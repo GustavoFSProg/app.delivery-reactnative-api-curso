@@ -7,24 +7,24 @@ import controllerUsuario from "./controllers/controller.usuario.js";
 
 const router = Router();
 
-router.post("/usuarios/login", (req, res) => {
+// router.post("/usuarios/login", (req, res) => {
 
-    //const email = req.body.email;
-    //const senha = req.body.senha;
-    const { email, senha } = req.body;
+//     //const email = req.body.email;
+//     //const senha = req.body.senha;
+//     const { email, senha } = req.body;
 
-    if (email == "teste@teste.com" && senha == "12345") {
-        res.status(200).json({
-            id_usuario: 123,
-            email: "teste@teste.com",
-            nome: "Heber Stein Mazutti",
-            insta: "@devpoint.com.br"
-        });
-    } else {
-        res.status(401).json({ error: "E-mail ou senha inválida" });
-    }
+//     if (email == "teste@teste.com" && senha == "12345") {
+//         res.status(200).json({
+//             id_usuario: 123,
+//             email: "teste@teste.com",
+//             nome: "Heber Stein Mazutti",
+//             insta: "@devpoint.com.br"
+//         });
+//     } else {
+//         res.status(401).json({ error: "E-mail ou senha inválida" });
+//     }
 
-});
+// });
 
 router.post("/usuarios", (req, res) => {
 
@@ -65,11 +65,9 @@ router.get("/banners", controllerBanner.Listar);
 router.get("/empresas/destaques", controllerEmpresa.Destaques);
 
 
-// pedidos
-router.get("/pedidos", controllerpedido.Listar);
-router.get("/pedidos/:id_pedido", controllerpedido.ListarId);
-
-
+// // pedidos
+// router.get("/pedidos", controllerpedido.Listar);
+// router.get("/pedidos/:id_pedido", controllerpedido.ListarId);
 
 
 // Usuarios 
