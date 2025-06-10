@@ -65,9 +65,9 @@ router.get("/banners", controllerBanner.Listar);
 router.get("/empresas/destaques", controllerEmpresa.Destaques);
 
 
-// // pedidos
-// router.get("/pedidos", controllerpedido.Listar);
-// router.get("/pedidos/:id_pedido", controllerpedido.ListarId);
+// pedidos
+router.get("/pedidos", controllerpedido.Listar);
+router.get("/pedidos/:id_pedido", controllerpedido.ListarId);
 
 
 // Usuarios 
