@@ -4,6 +4,7 @@ import controllerBanner from "./controllers/controller.banner.js";
 import controllerEmpresa from "./controllers/controller.empresa.js";
 import controllerpedido from "./controllers/controller.pedido.js";
 import controllerUsuario from "./controllers/controller.usuario.js";
+import jwt from './token.js'
 
 const router = Router();
 
@@ -26,24 +27,24 @@ const router = Router();
 
 // });
 
-router.post("/usuarios", (req, res) => {
+// router.post("/usuarios", (req, res) => {
 
-    const { nome, email, senha, endereco, complemento, bairro, cidade, uf, cep } = req.body;
+//     const { nome, email, senha, endereco, complemento, bairro, cidade, uf, cep } = req.body;
 
-    res.status(201).json({
-        id_usuario: 123,
-        nome,
-        email,
-        senha,
-        endereco,
-        complemento,
-        bairro,
-        cidade,
-        uf,
-        cep,
-        insta: "@devpoint.com.br"
-    });
-});
+//     res.status(201).json({
+//         id_usuario: 123,
+//         nome,
+//         email,
+//         senha,
+//         endereco,
+//         complemento,
+//         bairro,
+//         cidade,
+//         uf,
+//         cep,
+//         insta: "@devpoint.com.br"
+//     });
+// });
 
 router.get("/restaurantes", (req, res) => {
 
@@ -60,7 +61,7 @@ router.get("/restaurantes", (req, res) => {
 
 
 // produtos
-router.get("/categorias", controllerCategoria.Listar);
+router.get("/categorias", jwt.ValidateToken, controllerCategoria.Listar);
 router.get("/banners", controllerBanner.Listar);
 router.get("/empresas/destaques", controllerEmpresa.Destaques);
 
