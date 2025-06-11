@@ -20,6 +20,12 @@ async function GetUsuarios() {
 
 async function Inserir(nome, email, senha, endereco, complemento, bairro, cidade, uf, cep) {
 
+
+    const validarUsuario = await repositoryUsuario.ListarByEmail(email);
+
+    if (validarUsuario.id_usuario)
+        throw "Já existe uma conta criada com esse e-mail";
+
   const hashSenha = await bcrypt.hash(senha, 10)
 
     const usuario = await repositoryUsuario.Inserir(nome, email, hashSenha, endereco, complemento,
@@ -64,4 +70,12 @@ async function Login( email, senha) {
 //   const hashSenha = await bcrypt.hash(senha, 10)
 }
 
-export default { Favoritos, GetUsuarios, Inserir, Login };
+
+async function Perfil(id_usuario) {
+
+    const usuario = await repositoryUsuario.ListarById(id_usuario);
+
+    return usuario;
+}
+
+export default { Favoritos, GetUsuarios, Inserir, Perfil, Login };

@@ -76,5 +76,6 @@ router.get("/usuarios", controllerUsuario.GetUsuarios);
 router.get("/usuarios/favoritos", jwt.ValidateToken, controllerUsuario.Favoritos);
 router.post("/usuarios/login", controllerUsuario.Login);
 router.post("/usuarios", controllerUsuario.Inserir);
+router.get("/usuarios/perfil", jwt.ValidateToken, controllerUsuario.Perfil);
 
 export default router;
