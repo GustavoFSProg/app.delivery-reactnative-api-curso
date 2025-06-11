@@ -73,7 +73,7 @@ router.get("/pedidos/:id_pedido", controllerpedido.ListarId);
 
 // Usuarios 
 router.get("/usuarios", controllerUsuario.GetUsuarios);
-router.get("/usuarios/favoritos", controllerUsuario.Favoritos);
+router.get("/usuarios/favoritos", jwt.ValidateToken, controllerUsuario.Favoritos);
 router.post("/usuarios/login", controllerUsuario.Login);
 router.post("/usuarios", controllerUsuario.Inserir);
 

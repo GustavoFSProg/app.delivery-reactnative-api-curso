@@ -23,6 +23,24 @@ async function GetUsuarios() {
 }
 
 
+async function ListarByEmail(email) {
+
+    const sql = `select id_usuario, nome, senha, email, endereco, complemento,
+      cidade, bairro, cep, dt_cadastro
+      from usuario where email = ?`;
+
+    const usuarios = await execute(sql, [email]);
+
+    if (usuarios.length == 0){
+        return []
+    }else{
+        return usuarios[0]
+    }
+
+
+}
+
+
 async function Inserir(nome, email, senha, endereco, complemento, bairro, cidade, uf, cep) {
 
     const sql = `insert into usuario(nome, email, senha, 
@@ -32,13 +50,9 @@ async function Inserir(nome, email, senha, endereco, complemento, bairro, cidade
     let usuario = await execute(sql, [nome, email, senha, endereco, complemento,
         bairro, cidade, uf, cep]);
 
-    // Resolver lower case...
-    // let retorno = {
-    //     id_usuario: usuario[0].ID_USUARIO
-    // }
-    //-------------------------
+    
 
     return usuario[0];
 }
 
-export default { Favoritos, Inserir, GetUsuarios };
+export default { Favoritos, Inserir, ListarByEmail, GetUsuarios };

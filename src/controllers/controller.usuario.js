@@ -3,7 +3,7 @@ import jwt from '../token.js'
 
 async function Favoritos(req, res) {
     try {
-        const id_usuario = 1; // Pegar do token JWT
+        const id_usuario = req.id_usuario; // Pegar do token JWT
         const favoritos = await serviceUsuario.Favoritos(id_usuario);
 
         res.status(200).json(favoritos);
@@ -22,27 +22,17 @@ async function GetUsuarios(req, res) {
     }
 }
 
- async function Login(req, res) {
+ 
+async function Login(req, res) {
 
-    //const email = req.body.email;
-    //const senha = req.body.senha;
     const { email, senha } = req.body;
 
-    const id_usuario = 123
+    const usuario = await serviceUsuario.Login(email, senha);
 
-    const token =  jwt.createToken({id_usuario})
-
-    // if (email == "teste@teste.com" && senha == "12345") {
-    //     res.status(200).json({
-    //         id_usuario: 123,
-    //         email: "teste@teste.com",
-    //         nome: "Heber Stein Mazutti",
-    //         insta: "@devpoint.com.br"
-    //     });
-    // } else {
-    return    res.status(201).json({ email, token });
-    // }
-
+    if (usuario.length == 0)
+        res.status(401).json({ error: "E-mail ou senha inválida" });
+    else
+        res.status(200).json(usuario);
 }
 
 async function Inserir(req, res) {

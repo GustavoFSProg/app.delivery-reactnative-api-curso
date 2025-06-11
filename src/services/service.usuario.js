@@ -1,5 +1,6 @@
-
+import bcrypt from 'bcrypt'
 import repositoryUsuario from "../repositories/repository.usuario.js";
+import jwt from '../token.js'
 
 async function Favoritos(id_usuario) {
 
@@ -19,10 +20,48 @@ async function GetUsuarios() {
 
 async function Inserir(nome, email, senha, endereco, complemento, bairro, cidade, uf, cep) {
 
-    const usuario = await repositoryUsuario.Inserir(nome, email, senha, endereco, complemento,
+  const hashSenha = await bcrypt.hash(senha, 10)
+
+    const usuario = await repositoryUsuario.Inserir(nome, email, hashSenha, endereco, complemento,
         bairro, cidade, uf, cep);
+
+         const id_usuario = usuario
+        
+        
+        
+                // const token = jwt.CreateJWT(id_usuario);
+            const token =  jwt.createToken(id_usuario)
+        
 
     return usuario;
 }
 
-export default { Favoritos, GetUsuarios, Inserir };
+
+async function Login( email, senha) {
+
+    const usuario = await repositoryUsuario.ListarByEmail(email)
+
+    
+    if (usuario.length == 0){
+        return []
+    }else{
+
+        if(await bcrypt.compare(senha, usuario.senha)) {
+
+               const id_usuario = usuario
+        
+        
+        
+                // const token = jwt.CreateJWT(id_usuario);
+            const token =  jwt.createToken(id_usuario)
+                
+                return {usuario , token};
+            }else{
+                return []
+            }
+    }
+
+//   const hashSenha = await bcrypt.hash(senha, 10)
+}
+
+export default { Favoritos, GetUsuarios, Inserir, Login };
