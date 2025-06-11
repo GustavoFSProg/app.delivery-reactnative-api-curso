@@ -33,12 +33,12 @@ async function Inserir(nome, email, senha, endereco, complemento, bairro, cidade
         bairro, cidade, uf, cep]);
 
     // Resolver lower case...
-    let retorno = {
-        id_usuario: usuario[0].ID_USUARIO
-    }
+    // let retorno = {
+    //     id_usuario: usuario[0].ID_USUARIO
+    // }
     //-------------------------
 
-    return retorno;
+    return usuario[0];
 }
 
 export default { Favoritos, Inserir, GetUsuarios };
