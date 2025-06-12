@@ -63,7 +63,7 @@ router.get("/restaurantes", (req, res) => {
 // produtos
 router.get("/categorias", jwt.ValidateToken, controllerCategoria.Listar);
 router.get("/banners", controllerBanner.Listar);
-router.get("/empresas/destaques", controllerEmpresa.Destaques);
+router.get("/empresas/destaques",  jwt.ValidateToken, controllerEmpresa.Destaques);
 
 
 // pedidos
