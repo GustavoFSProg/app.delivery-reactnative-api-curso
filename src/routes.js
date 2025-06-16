@@ -46,18 +46,18 @@ const router = Router();
 //     });
 // });
 
-router.get("/restaurantes", (req, res) => {
+// router.get("/restaurantes", (req, res) => {
 
-    // URI Params: http://localhost:3001/restaurantes/10
-    // Query params: http://localhost:3001/restaurantes?busca=Pizza (somente GET)
-    const busca = req.query.busca;
+//     // URI Params: http://localhost:3001/restaurantes/10
+//     // Query params: http://localhost:3001/restaurantes?busca=Pizza (somente GET)
+//     const busca = req.query.busca;
 
-    res.json([
-        { restaurante: 1, nome: "Burger King" },
-        { restaurante: 2, nome: "Mc Donalds" }
-    ]);
+//     res.json([
+//         { restaurante: 1, nome: "Burger King" },
+//         { restaurante: 2, nome: "Mc Donalds" }
+//     ]);
 
-});
+// });
 
 
 // produtos
