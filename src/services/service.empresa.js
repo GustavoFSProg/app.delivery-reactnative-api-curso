@@ -34,4 +34,12 @@ async function ExcluirFavorito(id_usuario, id_empresa) {
     return empresas;
 }
 
-export default { Destaques, Listar, InserirFavorito, ExcluirFavorito };
+
+async function Cardapio(id_usuario, id_empresa) {
+
+    const card = await repositoryEmpresa.Cardapio(id_usuario, id_empresa);
+
+    return card;
+}
+
+export default { Destaques, Listar, InserirFavorito, Cardapio, ExcluirFavorito };
