@@ -34,4 +34,27 @@ async function Listar(id_usuario, busca) {
     return empresas;
 }
 
-export default { Destaques, Listar };
+
+async function InserirFavorito(id_usuario, id_empresa) {
+
+    await ExcluirFavorito(id_usuario, id_empresa);
+
+    const sql = `insert into usuario_favorito(id_usuario, id_empresa) values(?, ?) 
+    returning id_favorito`;
+
+    const fav = await execute(sql, [id_usuario, id_empresa]);
+
+    return fav[0];
+}
+
+async function ExcluirFavorito(id_usuario, id_empresa) {
+
+    const sql = `delete from usuario_favorito where id_empresa = ? and id_usuario = ? 
+    returning id_favorito`;
+
+    const fav = await execute(sql, [id_empresa, id_usuario]);
+
+    return fav[0];
+}
+
+export default { Destaques, Listar, InserirFavorito, ExcluirFavorito };
