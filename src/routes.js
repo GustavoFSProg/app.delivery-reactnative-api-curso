@@ -70,7 +70,7 @@ router.get("/empresas",  jwt.ValidateToken, controllerEmpresa.Listar);
 router.post("/empresas/:id_empresa/favoritos", jwt.ValidateToken, controllerEmpresa.InserirFavorito);
 router.delete("/empresas/:id_empresa/favoritos", jwt.ValidateToken, controllerEmpresa.ExcluirFavorito);
 router.get("/empresas/:id_empresa/cardapio", jwt.ValidateToken, controllerEmpresa.Cardapio);
-
+router.get("/empresas/:id_empresa/produtos/:id_produto", jwt.ValidateToken, controllerEmpresa.ListarProdutoId);
 
 // pedidos
 router.get("/pedidos", controllerpedido.Listar);

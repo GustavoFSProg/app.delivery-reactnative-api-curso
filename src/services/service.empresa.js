@@ -42,4 +42,12 @@ async function Cardapio(id_usuario, id_empresa) {
     return card;
 }
 
-export default { Destaques, Listar, InserirFavorito, Cardapio, ExcluirFavorito };
+
+async function ListarProdutoId(id_empresa, id_produto) {
+
+    const produto = await repositoryEmpresa.ListarProdutoId(id_empresa, id_produto);
+
+    return produto;
+}
+
+export default { Destaques, Listar, InserirFavorito, ListarProdutoId, Cardapio, ExcluirFavorito };
