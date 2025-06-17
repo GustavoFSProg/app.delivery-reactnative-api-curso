@@ -1,4 +1,4 @@
-import repositoryCategoria from "../repositories/repository.categoria.js";
+import repositoryCategoria from "../repositories/repository.categoria";
 
 async function Listar() {
 

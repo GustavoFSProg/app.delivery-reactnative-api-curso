@@ -1,4 +1,4 @@
-import serviceEmpresas from '../services/service.empresa.js'
+import serviceEmpresas from '../services/service.empresa'
 
 
 async function Destaques(req, res) {

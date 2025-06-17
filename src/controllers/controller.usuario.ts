@@ -1,5 +1,5 @@
-import serviceUsuario from "../services/service.usuario.js";
-import jwt from '../token.js'
+import serviceUsuario from "../services/service.usuario";
+import jwt from '../token'
 
 async function Favoritos(req, res) {
     try {

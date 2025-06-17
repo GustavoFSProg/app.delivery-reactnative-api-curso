@@ -1,7 +1,7 @@
 // import repositoryEmpresa from "../repositories/repository.categoria.js";
 // import repositoryEmpresa from "../repositories/repository.empresa";
 
-import repositoryEmpresa from "../repositories/repository.empresa.js";
+import repositoryEmpresa from "../repositories/repository.empresa";
 
 
 async function Destaques(id_usuario) {
