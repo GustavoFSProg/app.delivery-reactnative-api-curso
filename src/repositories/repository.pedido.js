@@ -39,7 +39,8 @@ async function Inserir(id_usuario, dados) {
 
     // Dados pedido
     let sql = `insert into pedido(id_usuario, id_empresa, vl_subtotal, 
-        vl_taxa_entrega, vl_total, dt_pedido, status) values(?, ?, ?, ?, ?, CURRENT_TIMESTAMP, 'P')
+        vl_taxa_entrega, vl_total, dt_pedido, status) values(?, ?, ?, ?, ?,
+         CURRENT_TIMESTAMP, 'P')
         returning id_pedido`;
 
     const pedido = await execute(sql, [id_usuario, dados.id_empresa, dados.vl_subtotal,
