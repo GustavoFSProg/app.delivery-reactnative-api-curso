@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import repositoryUsuario from "../repositories/repository.usuario.js";
+import repositoryUsuario from "../repositories/repository.usuario";
 import jwt from '../token.js'
 
 async function Favoritos(id_usuario) {

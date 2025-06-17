@@ -1,4 +1,4 @@
-import repositoryPedido from "../repositories/repository.pedido.js";
+import repositoryPedido from "../repositories/repository.pedido";
 
 async function Listar() {
 

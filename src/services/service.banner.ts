@@ -1,4 +1,4 @@
-import repositoryBanner from "../repositories/repository.banner.js";
+import repositoryBanner from "../repositories/repository.banner";
 
 async function Listar() {
 

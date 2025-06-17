@@ -1,4 +1,4 @@
-import { execute } from "../database/sqlite.js";
+import { execute } from "../database/sqlite";
 
 async function Destaques(id_usuario) {
 

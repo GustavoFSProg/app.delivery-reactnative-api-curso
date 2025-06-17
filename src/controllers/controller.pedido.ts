@@ -1,4 +1,4 @@
-import servicePedido from "../services/service.pedido.js";
+import servicePedido from "../services/service.pedido";
 
 async function Listar(req, res) {
     try {

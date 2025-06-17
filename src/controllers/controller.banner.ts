@@ -1,4 +1,4 @@
-import serviceBanner from "../services/service.banner.js";
+import serviceBanner from "../services/service.banner";
 
 async function Listar(req, res) {
     try {
