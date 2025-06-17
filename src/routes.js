@@ -75,6 +75,7 @@ router.get("/empresas/:id_empresa/produtos/:id_produto", jwt.ValidateToken, cont
 // pedidos
 router.get("/pedidos", controllerpedido.Listar);
 router.get("/pedidos/:id_pedido", controllerpedido.ListarId);
+router.post("/pedidos", jwt.ValidateToken, controllerpedido.Inserir);
 
 
 // Usuarios 
