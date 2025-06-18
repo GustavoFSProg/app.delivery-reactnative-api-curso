@@ -9,7 +9,7 @@ import jwt from "./token";
 const router = Router();
 
 router.get("/", (req: Request, res: Response) => {
-  return res.status(200).json({ msg: `Servidor rodando na porta:` });
+  return res.status(200).json({ msg: `Este Servidor rodando na porta:` });
 });
 
 // router.post("/usuarios/login", (req, res) => {
