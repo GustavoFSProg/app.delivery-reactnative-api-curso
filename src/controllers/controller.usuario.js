@@ -35,6 +35,20 @@ async function Login(req, res) {
         res.status(200).json(usuario);
 }
 
+
+
+// async function Login(req, res) {
+
+//     const { email, senha } = req.body;
+
+//     const usuario = await serviceUsuario.Login(email, senha);
+
+//     if (usuario.length == 0)
+//         res.status(401).json({ error: "E-mail ou senha inválida" });
+//     else
+//         res.status(200).json(usuario);
+// }
+
 async function Inserir(req, res) {
 
     try {
