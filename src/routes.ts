@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import controllerCategoria from "./controllers/controller.categoria";
 import controllerBanner from "./controllers/controller.banner";
 import controllerEmpresa from "./controllers/controller.empresa";
@@ -7,6 +7,10 @@ import controllerUsuario from "./controllers/controller.usuario";
 import jwt from "./token";
 
 const router = Router();
+
+router.get("/", (req: Request, res: Response) => {
+  return res.status(200).json({ msg: `Servidor rodando na porta:` });
+});
 
 // router.post("/usuarios/login", (req, res) => {
 
