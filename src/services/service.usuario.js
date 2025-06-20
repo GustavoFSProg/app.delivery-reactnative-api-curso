@@ -43,11 +43,21 @@ async function Inserir(
     uf,
     cep
   );
+  const token = jwt.createToken(usuario);
 
-  const id_usuario = usuario;
+  usuario.token;
+  usuario.nome = nome;
+  usuario.email = email;
+  usuario.endereco = endereco;
+  usuario.complemento = complemento;
+  usuario.bairro = bairro;
+  usuario.cidade = cidade;
+  usuario.uf = uf;
+  usuario.cep = cep;
+
+  // const id_usuario = usuario;
 
   // const token = jwt.CreateJWT(id_usuario);
-  const token = jwt.createToken(id_usuario);
 
   return usuario;
 }
