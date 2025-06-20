@@ -66,10 +66,11 @@ router.get("/banners", controllerBanner.Listar);
 
 // empresas
 router.get(
-  "/empresas/destaques",
-  jwt.ValidateToken,
+  "/empresas/destaques/:id",
+
   controllerEmpresa.Destaques
 );
+
 router.get("/empresas", jwt.ValidateToken, controllerEmpresa.Listar);
 router.post(
   "/empresas/:id_empresa/favoritos",
