@@ -4,7 +4,7 @@ import controllerBanner from "./controllers/controller.banner.js";
 import controllerEmpresa from "./controllers/controller.empresa.js";
 import controllerpedido from "./controllers/controller.pedido.js";
 import controllerUsuario from "./controllers/controller.usuario.js";
-import jwt from './token.js'
+import jwt from "./token.js";
 
 const router = Router();
 
@@ -59,28 +59,51 @@ const router = Router();
 
 // });
 
-
 // produtos
-router.get("/categorias", jwt.ValidateToken, controllerCategoria.Listar);
+router.get("/categorias", controllerCategoria.Listar);
+// router.get("/categorias", jwt.ValidateToken, controllerCategoria.Listar);
 router.get("/banners", controllerBanner.Listar);
 
 // empresas
-router.get("/empresas/destaques",  jwt.ValidateToken, controllerEmpresa.Destaques);
-router.get("/empresas",  jwt.ValidateToken, controllerEmpresa.Listar);
-router.post("/empresas/:id_empresa/favoritos", jwt.ValidateToken, controllerEmpresa.InserirFavorito);
-router.delete("/empresas/:id_empresa/favoritos", jwt.ValidateToken, controllerEmpresa.ExcluirFavorito);
-router.get("/empresas/:id_empresa/cardapio", jwt.ValidateToken, controllerEmpresa.Cardapio);
-router.get("/empresas/:id_empresa/produtos/:id_produto", jwt.ValidateToken, controllerEmpresa.ListarProdutoId);
+router.get(
+  "/empresas/destaques",
+  jwt.ValidateToken,
+  controllerEmpresa.Destaques
+);
+router.get("/empresas", jwt.ValidateToken, controllerEmpresa.Listar);
+router.post(
+  "/empresas/:id_empresa/favoritos",
+  jwt.ValidateToken,
+  controllerEmpresa.InserirFavorito
+);
+router.delete(
+  "/empresas/:id_empresa/favoritos",
+  jwt.ValidateToken,
+  controllerEmpresa.ExcluirFavorito
+);
+router.get(
+  "/empresas/:id_empresa/cardapio",
+  jwt.ValidateToken,
+  controllerEmpresa.Cardapio
+);
+router.get(
+  "/empresas/:id_empresa/produtos/:id_produto",
+  jwt.ValidateToken,
+  controllerEmpresa.ListarProdutoId
+);
 
 // pedidos
 router.get("/pedidos", controllerpedido.Listar);
 router.get("/pedidos/:id_pedido", controllerpedido.ListarId);
 router.post("/pedidos", jwt.ValidateToken, controllerpedido.Inserir);
 
-
-// Usuarios 
+// Usuarios
 router.get("/usuarios", controllerUsuario.GetUsuarios);
-router.get("/usuarios/favoritos", jwt.ValidateToken, controllerUsuario.Favoritos);
+router.get(
+  "/usuarios/favoritos",
+  jwt.ValidateToken,
+  controllerUsuario.Favoritos
+);
 router.post("/usuarios/login", controllerUsuario.Login);
 router.post("/usuarios", controllerUsuario.Inserir);
 router.get("/usuarios/perfil", jwt.ValidateToken, controllerUsuario.Perfil);
