@@ -73,18 +73,18 @@ router.get(
 
 router.get("/empresas", jwt.ValidateToken, controllerEmpresa.Listar);
 router.post(
-  "/empresas/:id_empresa/favoritos",
-  jwt.ValidateToken,
+  "/empresas/:id_empresa/favoritos/:id_usuario",
+  // jwt.ValidateToken,
   controllerEmpresa.InserirFavorito
 );
 router.delete(
-  "/empresas/:id_empresa/favoritos",
-  jwt.ValidateToken,
+  "/empresas/:id_empresa/favoritos/:id_usuario",
+  // jwt.ValidateToken,
   controllerEmpresa.ExcluirFavorito
 );
 router.get(
   "/empresas/:id_empresa/cardapio",
-  jwt.ValidateToken,
+  // jwt.ValidateToken,
   controllerEmpresa.Cardapio
 );
 router.get(
@@ -101,8 +101,8 @@ router.post("/pedidos", jwt.ValidateToken, controllerpedido.Inserir);
 // Usuarios
 router.get("/usuarios", controllerUsuario.GetUsuarios);
 router.get(
-  "/usuarios/favoritos",
-  jwt.ValidateToken,
+  "/usuarios/favoritos/:id_usuario",
+  // jwt.ValidateToken,
   controllerUsuario.Favoritos
 );
 router.post("/usuarios/login", controllerUsuario.Login);

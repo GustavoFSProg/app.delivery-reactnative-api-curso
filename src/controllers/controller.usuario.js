@@ -3,7 +3,7 @@ import jwt from "../token.js";
 
 async function Favoritos(req, res) {
   try {
-    const id_usuario = req.id_usuario; // Pegar do token JWT
+    const id_usuario = req.params.id_usuario; // Pegar do token JWT
     const favoritos = await serviceUsuario.Favoritos(id_usuario);
 
     res.status(200).json(favoritos);

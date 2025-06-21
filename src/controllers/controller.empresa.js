@@ -25,7 +25,7 @@ async function Listar(req, res) {
 
 async function InserirFavorito(req, res) {
   try {
-    const id_usuario = req.id_usuario;
+    const id_usuario = req.params.id_usuario;
     const id_empresa = req.params.id_empresa;
     const empresas = await serviceEmpresas.InserirFavorito(
       id_usuario,
@@ -40,7 +40,7 @@ async function InserirFavorito(req, res) {
 
 async function ExcluirFavorito(req, res) {
   try {
-    const id_usuario = req.id_usuario;
+    const id_usuario = req.params.id_usuario;
     const id_empresa = req.params.id_empresa;
     const empresas = await serviceEmpresas.ExcluirFavorito(
       id_usuario,
