@@ -71,7 +71,7 @@ router.get(
   controllerEmpresa.Destaques
 );
 
-router.get("/empresas", jwt.ValidateToken, controllerEmpresa.Listar);
+router.get("/empresas", controllerEmpresa.Listar);
 router.post(
   "/empresas/:id_empresa/favoritos/:id_usuario",
   // jwt.ValidateToken,
