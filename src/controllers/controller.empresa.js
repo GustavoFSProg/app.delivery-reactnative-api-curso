@@ -81,7 +81,7 @@ async function ListarProdutoId(req, res) {
       id_produto
     );
 
-    res.status(200).json(produto);
+    return res.status(200).json(produto);
   } catch (error) {
     res.status(500).json({ error });
   }

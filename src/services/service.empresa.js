@@ -44,17 +44,26 @@ async function Cardapio(id_usuario, id_empresa) {
   return card;
 }
 
-async function ListarProdutoId(
-  id_empresa,
-  id_categoria,
-  id_banner,
-  id_produto
-) {
+// async function ListarProdutoId(
+//   id_empresa,
+//   id_categoria,
+//   id_banner,
+//   id_produto
+// ) {
+//   const produto = await repositoryEmpresa.ListarProdutoId(
+//     id_empresa,
+//     id_produto,
+//     id_categoria,
+//     id_banner
+//   );
+
+//   return produto;
+// }
+
+async function ListarProdutoId(id_empresa, id_produto) {
   const produto = await repositoryEmpresa.ListarProdutoId(
     id_empresa,
-    id_produto,
-    id_categoria,
-    id_banner
+    id_produto
   );
 
   return produto;

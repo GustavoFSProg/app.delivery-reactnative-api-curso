@@ -89,7 +89,7 @@ router.get(
 );
 router.get(
   "/empresas/:id_empresa/produtos/:id_produto",
-  jwt.ValidateToken,
+  // jwt.ValidateToken,
   controllerEmpresa.ListarProdutoId
 );
 
